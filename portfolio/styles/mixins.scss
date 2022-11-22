@@ -1,0 +1,38 @@
+@mixin max-width {
+  width: 100%;
+  max-width: 120rem;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+@mixin flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@mixin device ($device) {
+  @if $device == desktop {
+    @media only screen and (max-width: 1440px) {
+      @content;
+    }
+  }
+
+  @if $device == notebook {
+    @media only screen and (max-width: 1024px) {
+      @content;
+    }
+  }
+
+  @if $device == tablet {
+    @media only screen and (max-width: 768px) {
+      @content;
+    }
+  }
+
+  @if $device == mobile {
+    @media only screen and (max-width: 425px) {
+      @content;
+    }
+  }
+}

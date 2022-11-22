@@ -1,0 +1,20 @@
+@import 'styles/variables.scss';
+
+.item {
+  display: inline-block;
+
+  &:not(:last-of-type) {
+    margin-right: 2rem;
+  }
+
+  a {
+    text-decoration: none;
+    color: $lightPrimary;
+    padding: 1rem;
+    cursor: pointer;
+
+    &:hover {
+      font-weight: 600;
+    }
+  }
+}

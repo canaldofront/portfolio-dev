@@ -1,0 +1,26 @@
+@import 'styles/variables.scss';
+@import 'styles/mixins.scss';
+
+.experience {
+  display: flex;
+  border-top: 1px solid $darkPrimary;
+  padding: 4rem 0;
+
+  .period {
+    min-width: 12rem;
+    margin-top: 0.4rem;
+  }
+
+  .description {
+    margin-left: 4rem;
+
+    h4 {
+      margin-bottom: 1rem;
+    }
+
+    h5 {
+      font-size: 1.8rem;
+      font-weight: 400;
+    }
+  }
+}

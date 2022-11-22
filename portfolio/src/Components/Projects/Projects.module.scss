@@ -1,0 +1,39 @@
+@import 'styles/variables.scss';
+@import 'styles/mixins.scss';
+
+.projects {
+  @include max-width;
+  margin-bottom: $marginBottom;
+  display: flex;
+  flex-direction: column;
+  scroll-margin-top: 8rem;
+
+  h2 {
+    position: relative;
+    margin-bottom: 3rem;
+    align-self: flex-start;
+
+    &::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      right: 0;
+      z-index: -1;
+      width: 45%;
+      height: 70%;
+      background-color: rgba($lightPrimary, 0.5);
+    }
+  }
+
+  .list {
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
+    gap: 3rem;
+  }
+
+  a {
+    margin-top: 6rem;
+    align-self: center;
+  }
+}

@@ -1,0 +1,82 @@
+@import 'styles/variables.scss';
+@import 'styles/mixins.scss';
+
+.section {
+  @include max-width;
+  margin-bottom: $marginBottom;
+  display: flex;
+  justify-content: space-between;
+  gap: 6rem;
+  scroll-margin-top: 8rem;
+
+  @include device(mobile) {
+    margin-bottom: $marginBottomMobile;
+  }
+
+  @include device(tablet) {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  ul {
+    list-style: none;
+  }
+
+  .skills {
+    width: 100%;
+    max-width: 47rem;
+
+    @include device(tablet) {
+      max-width: 60rem;
+    }
+
+    .heading {
+      margin-bottom: 3rem;
+
+      h2 {
+        margin-bottom: 1.5rem;
+        position: relative;
+
+        &::before {
+          content: '';
+          position: absolute;
+          top: 0;
+          left: 0;
+          z-index: -1;
+          width: 45%;
+          height: 70%;
+          background-color: rgba($lightPrimary, 0.5);
+        }
+      }
+    }
+
+    .content {
+      h3 {
+        margin-bottom: 1.5rem;
+      }
+
+      ul {
+        li {
+          background-color: $primary;
+          color: $darkPrimary;
+          text-transform: uppercase;
+          text-align: right;
+          padding: 2.5rem;
+
+          &:not(:last-of-type) {
+            margin-bottom: 1.5rem;
+          }
+        }
+      }
+    }
+  }
+
+  .experiences {
+    width: 100%;
+    max-width: 60rem;
+
+    h3 {
+      margin-bottom: 1.5rem;
+    }
+  }
+}

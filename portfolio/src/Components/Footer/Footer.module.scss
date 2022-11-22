@@ -1,0 +1,56 @@
+@import 'styles/variables.scss';
+@import 'styles/mixins.scss';
+
+.footer-wrapper {
+  background-color: $background;
+  scroll-margin-top: 8rem;
+
+  .footer {
+    @include max-width;
+    @include flex-center;
+    flex-direction: column;
+    padding-top: 9rem;
+    padding-bottom: 2.5rem;
+    gap: 6rem;
+    text-align: center;
+    position: relative;
+
+    .box {
+      position: absolute;
+      top: -5rem;
+      left: 2rem;
+
+      @include device(tablet) {
+        display: none;
+      }
+    }
+
+    form {
+      width: 100%;
+      max-width: 55rem;
+      color: $white;
+
+      button {
+        margin-top: 3rem;
+        width: 100%;
+
+        &:disabled {
+          background-color: $gray;
+          color: $white;
+          cursor: default;
+        }
+      }
+    }
+
+    h2 {
+      font-size: 5.6rem;
+      color: $primary;
+      max-width: 50rem;
+    }
+
+    .copy {
+      font-size: 1.4rem;
+      color: rgba($white, 0.5);
+    }
+  }
+}

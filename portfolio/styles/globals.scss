@@ -1,0 +1,147 @@
+@import './variables.scss';
+@import './mixins.scss';
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+  scroll-behavior: smooth;
+
+  @include device(notebook) {
+    font-size: 60%;
+  }
+
+  @include device(mobile) {
+    font-size: 58%;
+  }
+}
+
+body {
+  font-size: 1.6rem;
+  font-family: $fontFamily;
+}
+
+h1,
+.h1 {
+  font-weight: 700;
+  font-size: 7.5rem;
+  line-height: 7.5rem;
+  color: $primary;
+
+  @include device(notebook) {
+    font-size: 6.5rem;
+  }
+}
+
+h2,
+.h2 {
+  font-size: 4.8rem;
+  color: $background;
+  font-weight: 500;
+}
+
+h3,
+.h3 {
+  font-size: 3.6rem;
+  color: $background;
+  font-weight: 500;
+}
+
+h4,
+.h4 {
+  font-size: 2.4rem;
+  color: $background;
+  font-weight: 500;
+}
+
+h5,
+.h5 {
+  font-size: 2.1rem;
+  color: $black;
+  font-weight: 500;
+}
+
+h6,
+.h6 {
+  font-size: 1.6rem;
+  color: $black;
+  font-weight: 500;
+}
+
+p,
+.p {
+  font-weight: 400;
+  font-size: 1.6rem;
+  line-height: 2.5rem;
+  color: $black;
+
+  &:not(:last-of-type) {
+    margin-bottom: 1.5rem;
+  }
+}
+
+.btn {
+  text-decoration: none;
+  border: none;
+  outline: none;
+  padding: 1.5rem 3rem;
+  display: inline-block;
+  font-weight: 500;
+
+  &.btn-primary {
+    background-color: $primary;
+    color: $darkPrimary;
+
+    &:hover {
+      cursor: pointer;
+      background-color: lighten($primary, 5);
+    }
+  }
+}
+
+.field {
+  &:not(:last-of-type) {
+    margin-bottom: 2rem;
+  }
+
+  & > * {
+    display: block;
+    text-align: left;
+  }
+
+  label {
+    margin-bottom: 0.5rem;
+  }
+
+  input,
+  textarea {
+    outline: none;
+    resize: none;
+    padding: 1rem;
+    width: 100%;
+    color: $black;
+    font-family: $fontFamily;
+  }
+}
+
+.error,
+.success {
+  text-align: left;
+  font-weight: 400;
+  margin-top: 0.5rem;
+  display: block;
+}
+
+.error {
+  color: $error;
+  font-size: 1.4rem;
+}
+
+.success {
+  color: $white;
+  font-size: 2.6rem;
+}

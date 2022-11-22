@@ -1,0 +1,97 @@
+@import 'styles/variables.scss';
+@import 'styles/mixins.scss';
+
+.navbar-wrapper {
+  background-color: $background;
+  position: fixed;
+  width: 100%;
+  z-index: 10;
+
+  .navbar {
+    @include max-width;
+    @include flex-center;
+    padding: 2.3rem 2rem;
+
+    @include device(tablet) {
+      justify-content: space-between;
+    }
+
+    .logo {
+      position: absolute;
+      top: 2rem;
+      left: 2rem;
+
+      @include device(tablet) {
+        position: static;
+      }
+    }
+
+    .list {
+      list-style: none;
+
+      @include device(tablet) {
+        display: none;
+      }
+    }
+
+    .mobile {
+      .icon {
+        display: none;
+        color: $primary;
+        width: 3rem;
+        height: 3rem;
+
+        &:hover {
+          cursor: pointer;
+        }
+
+        @include device(tablet) {
+          display: inline-block;
+        }
+      }
+
+      .background {
+        @include flex-center;
+        position: fixed;
+        top: 0;
+        right: -40rem;
+        width: 40rem;
+        height: 100vh;
+        background-color: $background;
+        padding: 2rem;
+        transition: all 0.3s ease-in;
+
+        .icon {
+          position: absolute;
+          top: 2rem;
+          left: 2rem;
+        }
+
+        nav {
+          width: 100%;
+        }
+
+        .mobile-list {
+          @include flex-center;
+          flex-direction: column;
+          text-align: center;
+          gap: 4rem;
+
+          li {
+            margin: 0;
+
+            a {
+              font-size: 1.8rem;
+            }
+          }
+        }
+      }
+
+      &.active {
+        .background {
+          right: 0;
+        }
+      }
+    }
+  }
+}

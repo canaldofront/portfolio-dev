@@ -1,0 +1,161 @@
+@import 'styles/variables.scss';
+@import 'styles/mixins.scss';
+
+.header-wrapper {
+  background-color: $background;
+  margin-bottom: calc($marginBottom + 7rem);
+
+  @include device(mobile) {
+    margin-bottom: calc($marginBottomMobile + 7rem);
+  }
+
+  .header {
+    @include max-width;
+    min-height: 100vh;
+    position: relative;
+
+    @include device(notebook) {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding-top: 12rem;
+      padding-bottom: 4rem;
+    }
+
+    .image {
+      width: 100%;
+      max-width: 45rem;
+      height: 45rem;
+      position: absolute;
+      top: 50%;
+      left: 2rem;
+      transform: translateY(-50%);
+
+      @include device(notebook) {
+        position: static;
+        transform: translateY(0);
+        margin-bottom: 6rem;
+      }
+
+      &::before {
+        content: '';
+        display: block;
+        width: 60%;
+        height: 60%;
+        position: absolute;
+        top: -0.5rem;
+        left: -0.5rem;
+        border-top: 0.5rem solid $lightPrimary;
+        border-left: 0.5rem solid $lightPrimary;
+      }
+    }
+
+    .content {
+      max-width: 76rem;
+      display: flex;
+      flex-direction: column;
+      position: absolute;
+      top: 50%;
+      right: 2rem;
+      transform: translateY(-50%);
+
+      @include device(notebook) {
+        position: static;
+        transform: translateY(0);
+        max-width: 60rem;
+        text-align: center;
+        align-items: center;
+        margin-bottom: 2rem;
+      }
+
+      :is(span, p) {
+        color: $white;
+      }
+
+      span {
+        margin-bottom: 1rem;
+      }
+
+      p {
+        align-self: flex-end;
+        max-width: 40rem;
+
+        @include device(notebook) {
+          align-self: center;
+        }
+      }
+    }
+
+    .social {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: center;
+      gap: 2.5rem;
+      padding: 2.5rem;
+      background-color: $lightPrimary;
+      position: fixed;
+      top: 4rem;
+      right: 2rem;
+      z-index: 12;
+
+      @include device(notebook) {
+        flex-direction: row;
+        background-color: transparent;
+        position: static;
+        margin-bottom: 2rem;
+      }
+
+      .icon {
+        width: 2.2rem;
+        height: 2.2rem;
+        color: $background;
+
+        @include device(notebook) {
+          color: $lightPrimary;
+        }
+
+        &:hover {
+          cursor: pointer;
+          color: $darkPrimary;
+        }
+      }
+    }
+
+    .arrow {
+      @include flex-center;
+      width: 9rem;
+      height: 9rem;
+      border-radius: 50%;
+      background-color: $primary;
+      position: absolute;
+      bottom: 4rem;
+      left: 50%;
+      animation: up-down 0.5s infinite alternate;
+
+      @include device(notebook) {
+        position: static;
+      }
+
+      .icon {
+        width: 4rem;
+        height: 4rem;
+        color: $background;
+
+        &:hover {
+          cursor: pointer;
+          color: $darkPrimary;
+        }
+      }
+
+      @keyframes up-down {
+        from {
+          transform: translateY(0);
+        }
+        to {
+          transform: translateY(-1rem);
+        }
+      }
+    }
+  }
+}
